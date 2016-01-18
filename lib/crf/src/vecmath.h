@@ -44,16 +44,7 @@
 #include <malloc.h>
 #else
 #include <stdlib.h>
-static inline void *_aligned_malloc(size_t size, size_t alignment)
-{
-    void *p;
-    int ret = posix_memalign(&p, alignment, size);
-    return (ret == 0) ? p : 0;
-}
-static inline void _aligned_free(void *p)
-{
-    free(p);
-}
+
 #endif
 
 #ifdef _MSC_VER
